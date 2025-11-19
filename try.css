@@ -900,7 +900,7 @@ body {
 .whatsapp-btn {
   position: fixed;
   bottom: 30px;
-  right: 30px;
+  left: 30px;
   background: #25D366; /* لون واتساب أخضر */
   color: white;
   display: flex;
