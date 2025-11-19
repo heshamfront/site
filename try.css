@@ -2,9 +2,9 @@
   --color-1: #0C2B4E;
   --color-2: #1A3D64;
   --color-3: #1D546C;
-  /* --color-3: #1d546c83; */
   --color-4: #F4F4F4;
 }
+/* --color-3: #1d546c83; */
 
 
 /* ################################## */
@@ -357,6 +357,10 @@ body {
 }
 /* end about */ 
 /* ############################# */
+
+
+
+/* ############################# */
 /* start services */
 .services {
   padding: 100px 8%;
@@ -411,7 +415,7 @@ body {
 
 .service-card h3 {
   font-size: 22px;
-  color: rgb(153, 0, 255); /* عنوان أزرق تركواز */
+  color: #9900ff; /* عنوان أزرق تركواز */
   margin: 15px 0 10px;
 }
 
@@ -451,3 +455,615 @@ body {
   }
 }
 /* end services */
+/* ############################# */
+/* start Our News */
+.news {
+  height: 120vh; /* ارتفاع القسم */
+  padding: 100px 8%;
+  background: var(--color-2); /* خلفية غامقة تتماشى مع هوية الموقع */
+  color: var(--color-4);
+  position: relative;
+  overflow: hidden;
+}
+
+.news-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 38px;
+  color: var(--color-4);
+  margin-bottom: 10px;
+}
+
+.section-desc {
+  font-size: 18px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 50px;
+}
+
+/* شبكة الأخبار */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* بطاقة الخبر */
+.news-card {
+  background: var(--color-1);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.news-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: brightness(0.85);
+}
+
+.news-card:hover img {
+  transform: scale(1.05);
+  filter: brightness(1);
+}
+
+.news-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+}
+
+/* محتوى الخبر */
+.news-content {
+  padding: 20px;
+  text-align: left;
+}
+
+.news-content h3 {
+  font-size: 22px;
+  color: #9900ff;
+  margin-bottom: 10px;
+}
+
+.news-content p {
+  font-size: 16px;
+  color: var(--color-4);
+  line-height: 1.5;
+}
+
+/* عند ظهور القسم */
+.news-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 32px;
+  }
+
+  .section-desc {
+    font-size: 16px;
+  }
+
+  .news-content {
+    text-align: center;
+  }
+}
+
+/* end Our News */
+/* ##################################### */
+/* start projects */
+.projects {
+  padding: 120px 8%;
+  background: var(--color-1);
+  color: var(--color-4);
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 38px;
+  color: var(--color-4);
+  margin-bottom: 10px;
+}
+
+.section-desc {
+  font-size: 18px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 50px;
+}
+
+/* Grid المشاريع */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* بطاقة المشروع */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  cursor: pointer;
+}
+
+.project-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26,61,100,0.8); /* overlay غامق */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.project-overlay h3 {
+  color: var(--color-4);
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.project-btn {
+  padding: 10px 20px;
+  background: var(--color-3);
+  color: var(--color-4);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.project-btn:hover {
+  background: var(--color-2);
+}
+
+/* Hover Effects */
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* عند ظهور البطاقة */
+.project-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 32px;
+  }
+
+  .section-desc {
+    font-size: 16px;
+  }
+}
+
+/* end projects */
+/* ##################################### */
+/* start our team */
+.team {
+  padding: 100px 8%;
+  background: var(--color-4); /* خلفية فاتحة */
+  color: var(--color-1);
+}
+
+.team-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 38px;
+  color: var(--color-1);
+  margin-bottom: 10px;
+}
+
+.section-desc {
+  font-size: 18px;
+  color: rgba(0,0,0,0.7);
+  margin-bottom: 50px;
+}
+
+/* شبكة الفريق */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+/* بطاقة الفريق */
+.team-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  cursor: pointer;
+}
+
+.team-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Overlay */
+.team-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26,61,100,0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  color: var(--color-4);
+}
+
+.team-card:hover img {
+  transform: scale(1.05);
+}
+
+.team-card:hover .team-overlay {
+  opacity: 1;
+}
+
+.team-overlay h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: var(--color-3);
+}
+
+.team-overlay p {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.team-social a {
+  margin: 0 6px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.team-social a:hover {
+  transform: scale(1.2);
+}
+
+.team-social img {
+  width: 24px;
+  height: 24px;
+}
+
+/* عند ظهور البطاقة */
+.team-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 32px;
+  }
+
+  .section-desc {
+    font-size: 16px;
+  }
+}
+
+/* end our team */
+/* ##################################### */
+/* start contact */
+.contact {
+  padding: 120px 8%;
+  background: linear-gradient(rgba(12,43,78,0.85), rgba(26,61,100,0.85)), url('CONTACT_BG.jpg') center/cover no-repeat;
+  color: var(--color-4);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-form, .contact-info {
+  flex: 1 1 400px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* عند ظهور العنصر */
+.contact-form.show, .contact-info.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* النموذج */
+.contact-form h2 {
+  font-size: 36px;
+  color: var(--color-4);
+  margin-bottom: 15px;
+}
+
+.contact-form p {
+  font-size: 16px;
+  margin-bottom: 25px;
+  color: rgba(255,255,255,0.8);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  box-shadow: 0 0 10px var(--color-3);
+}
+
+.contact-form button {
+  padding: 12px 25px;
+  background: var(--color-3);
+  border: none;
+  color: var(--color-4);
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background: var(--color-2);
+}
+
+/* معلومات الاتصال */
+.contact-info h3 {
+  font-size: 20px;
+  color: var(--color-3);
+  margin-bottom: 5px;
+}
+
+.contact-info p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: var(--color-4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+}
+
+/* end contact */
+/* ############## */
+/* whatsapp button */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #25D366; /* لون واتساب أخضر */
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+}
+
+.whatsapp-btn img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .whatsapp-btn {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  .whatsapp-btn i {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+  }
+}
+
+/* whatsapp button */
+/* scroll to top button */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  z-index: 1000;
+  background: #9900ff; /* لون مميز متناسق مع الموقع */
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.3s ease;
+}
+
+#scrollTopBtn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  #scrollTopBtn {
+    padding: 10px 14px;
+    font-size: 18px;
+    bottom: 100px;
+    right: 20px;
+  }
+}
+
+/* scroll to top button */
+/* ############################################## */
+/* end footer */
+
+/* end footer */.footer {
+  background: var(--color-1);
+  color: var(--color-4);
+  padding: 50px 8%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex: 1;
+}
+
+.footer h3 {
+  font-size: 22px;
+  color: var(--color-3);
+  margin-bottom: 15px;
+}
+
+.footer p, .footer li, .footer a {
+  color: var(--color-4);
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+  transition: color 0.3s;
+}
+
+.footer ul li:hover a {
+  color: var(--color-3);
+}
+
+/* روابط سوشيال */
+.footer-social a {
+  display: inline-block;
+  margin-right: 12px;
+  transition: transform 0.3s ease;
+}
+
+.footer-social a:hover {
+  transform: scale(1.2);
+}
+
+.footer-social img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Footer bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding-top: 20px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer h3 {
+    font-size: 20px;
+  }
+
+  .footer p, .footer li, .footer a {
+    font-size: 14px;
+  }
+
+  .footer-social i {
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+  }
+}
