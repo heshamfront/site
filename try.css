@@ -18,6 +18,7 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 /* 3) قواعد حاوية عامة متجاوبة */
@@ -546,6 +547,10 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .news-card {
+    min-height: fit-content;
+    padding-bottom: 30px;
+  }
   .section-title {
     font-size: 32px;
   }
