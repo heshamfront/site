@@ -1,0 +1,453 @@
+:root {
+  --color-1: #0C2B4E;
+  --color-2: #1A3D64;
+  --color-3: #1D546C;
+  /* --color-3: #1d546c83; */
+  --color-4: #F4F4F4;
+}
+
+
+/* ################################## */
+/* 1) reset مهم يمنع عناصر من الخروج عن الصندوق */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2) منع سكرول أفقي نهائيًا */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* 3) قواعد حاوية عامة متجاوبة */
+.container {
+  width: 100%;
+  max-width: 1200px;    /* غيّر الرقم لو تحب */
+  margin: 0 auto;
+  padding: 0 16px;      /* مسافة أفقية متناسقة */
+}
+
+/* 4) ضبط الهيرو - تأكد إنه لا يتسبب في overflow */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;     /* مهم جداً */
+  display: flex;
+  align-items: center;
+  padding: 0 4%;
+}
+
+/* 5) ضبط خلفية الهيرو (بدون أي قيم تجعلها تتجاوز العرض) */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;                     /* top:0;right:0;bottom:0;left:0; */
+  background-image: url('YOUR_IMAGE.jpg');
+  background-size: cover;       /* لا تضع نسب > 100% (مثل 120%) */
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 2s ease;
+  transform: none;              /* تأكد أنه لا يوجد scale يسبب overflow */
+}
+
+/* 6) نص الهيرو */
+.hero-content {
+  position: relative;
+  z-index: 2;                  /* فوق الـ ::before */
+  max-width: 560px;
+  width: 100%;
+  color: white;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease, transform 1s ease;
+}
+
+/* 7) عناصر عامة حساسة للعرض */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 8) لو عندك قوائم أفقية على الموبايل تأكد من التفاف العناصر */
+.nav ul {
+  display: flex;
+  flex-wrap: wrap; /* يسمح بالالتفاف بدل التمدد خارج الشاشة */
+  margin: 0;
+  padding: 0;
+}
+
+/* ################################## */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--color-4);
+}
+/* start header */
+.main-header {
+  background: #1d546c83;
+  padding: 15px 0;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 100px;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav ul li {
+  margin-left: 25px;
+}
+
+.nav ul li a {
+  color: var(--color-4);
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.nav ul li a:hover {
+  color: var(--color-3);
+}
+
+.menu-toggle {
+  display: none;
+  background: var(--color-2);
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav ul {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: var(--color-1);
+    width: 200px;
+    flex-direction: column;
+    text-align: right;
+    padding: 20px;
+    display: none;
+  }
+
+  .nav ul.show {
+    display: block;
+  }
+
+  .nav ul li {
+    margin: 15px 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+/* end header */
+/* ################################## */
+/* start hero */
+/* :root {
+  --color-1: #0C2B4E;
+  --color-2: #1A3D64;
+  --color-3: #1D546C;
+  --color-4: #F4F4F4;
+} */
+
+.hero {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+  background: var(--color-1);
+}
+
+/* خلفية الصورة */
+.hero::before {
+  content: "";
+  position: transparent;
+  inset: 0;
+  background-image: url('./photo/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;                 /* مخفية بالكامل */
+  transition: opacity 3s ease; /* تظهر تدريجيًا */
+}
+
+
+.hero.show-bg::before {
+  opacity: 1;  /* تظهر تدريجياً */
+}
+
+
+/* النص */
+.hero-content {
+  position: relative;
+  color: white;
+  max-width: 550px;
+  opacity: 0;
+  transform: translateY(40px); /* يبدأ نازل لتحت */
+  transition: opacity 1.2s ease, transform 1s ease;
+}
+
+.hero-content.show-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.hero-text {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: var(--color-4);
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: var(--color-3);
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  background: var(--color-2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 34px;
+  }
+  .hero-text {
+    font-size: 16px;
+  }
+}
+
+/* end hero */
+/* ############################ */
+/* start about */
+/* :root {
+  --color-1: #0C2B4E;
+  --color-2: #1A3D64;
+  --color-3: #1D546C;
+  --color-4: #F4F4F4;
+} */
+
+/* القسم */
+.about {
+  padding: 100px 8%;
+  background: var(--color-4);
+  position: relative;
+}
+
+/* الحاوية */
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* النص */
+.about-text {
+  flex: 1 1 450px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease, transform 1s ease;
+}
+
+.about-text.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-title {
+  font-size: 38px;
+  color: var(--color-1);
+  margin-bottom: 15px;
+}
+
+.about-desc {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 25px;
+  line-height: 1.7;
+}
+
+.about-list li {
+  font-size: 16px;
+  margin: 10px 0;
+  color: var(--color-1);
+  font-weight: bold;
+}
+
+/* الصورة */
+.about-img {
+  flex: 1 1 420px;
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 1.2s ease, transform 1s ease;
+}
+
+.about-img.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.about-img img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-img {
+    transform: translateY(40px);
+  }
+}
+/* end about */ 
+/* ############################# */
+/* start services */
+.services {
+  padding: 100px 8%;
+  background: var(--color-1); /* الخلفية غامقة */
+  position: relative;
+  color: var(--color-4); /* نصوص عامة باللون الفاتح */
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 38px;
+  color: var(--color-4); /* العنوان فاتح */
+  margin-bottom: 10px;
+}
+
+.section-desc {
+  font-size: 18px;
+  color: rgba(255,255,255,0.7); /* نصوص وصفية أفتح */
+  margin-bottom: 50px;
+}
+
+/* Grid الخدمات */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+/* بطاقة الخدمة */
+.service-card {
+  background: var(--color-2); /* بطاقات أفتح من الخلفية */
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.3s ease;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.service-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: brightness(0.85); /* صورة أغمق قليلاً لتتناسب مع الخلفية */
+}
+
+.service-card h3 {
+  font-size: 22px;
+  color: rgb(153, 0, 255); /* عنوان أزرق تركواز */
+  margin: 15px 0 10px;
+}
+
+.service-card p {
+  font-size: 16px;
+  color: var(--color-4);
+  padding: 0 15px 20px;
+  line-height: 1.5;
+}
+
+/* Hover effects */
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+  background: var(--color-3); /* تغيير لون البطاقة عند Hover */
+}
+
+.service-card:hover img {
+  transform: scale(1.05);
+  filter: brightness(1); /* الصورة تعود للسطوع الطبيعي عند Hover */
+}
+
+/* عند ظهور القسم */
+.service-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 32px;
+  }
+
+  .section-desc {
+    font-size: 16px;
+  }
+}
+/* end services */
