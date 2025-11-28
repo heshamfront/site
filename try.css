@@ -201,6 +201,7 @@ body {
   position: transparent;
   inset: 0;
   background-image: url('./photo/hero.jpg');
+  /* background-image: url('./photo/pexels-mikael-blomkvist-6476588\ \(1\).jpg');  */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
