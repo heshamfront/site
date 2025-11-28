@@ -113,6 +113,7 @@ body {
 .logo {
   font-size: 24px;
   font-weight: bold;
+  /* color: rgb(63, 37, 6); */
 }
 
 .nav ul {
@@ -280,7 +281,7 @@ body {
 /* القسم */
 .about {
   padding: 100px 8%;
-  background: var(--color-4);
+  background: #050f30;
   position: relative;
 }
 
@@ -297,6 +298,7 @@ body {
 .about-text {
   flex: 1 1 450px;
   opacity: 0;
+  color: #FFF;
   transform: translateY(40px);
   transition: opacity 1.2s ease, transform 1s ease;
 }
@@ -306,15 +308,15 @@ body {
   transform: translateY(0);
 }
 
-.section-title {
+.about .section-title {
   font-size: 38px;
-  color: var(--color-1);
+  color: yellow;
   margin-bottom: 15px;
 }
 
 .about-desc {
   font-size: 18px;
-  color: #333;
+  color: #fff;
   margin-bottom: 25px;
   line-height: 1.7;
 }
@@ -322,7 +324,7 @@ body {
 .about-list li {
   font-size: 16px;
   margin: 10px 0;
-  color: var(--color-1);
+  color: var(--color-4);
   font-weight: bold;
 }
 
@@ -332,6 +334,7 @@ body {
   opacity: 0;
   transform: translateX(40px);
   transition: opacity 1.2s ease, transform 1s ease;
+  box-shadow: 5px 10px 30px rgba(0,0,0,0.3);
 }
 
 .about-img.show {
@@ -377,16 +380,18 @@ body {
   text-align: center;
 }
 
-.section-title {
+.services-container .section-title {
   font-size: 38px;
-  color: var(--color-4); /* العنوان فاتح */
+  color: yellow; /* العنوان فاتح */
   margin-bottom: 10px;
+  z-index: 5;
 }
 
-.section-desc {
+.services-container .section-desc {
   font-size: 18px;
-  color: rgba(255,255,255,0.7); /* نصوص وصفية أفتح */
+  color: #fff !important; /* نصوص وصفية أفتح */
   margin-bottom: 50px;
+  z-index: 5;
 }
 
 /* Grid الخدمات */
@@ -476,13 +481,13 @@ body {
 
 .section-title {
   font-size: 38px;
-  color: var(--color-4);
+  color: yellow;
   margin-bottom: 10px;
 }
 
-.section-desc {
+.news-container .section-desc {
   font-size: 18px;
-  color: rgba(255,255,255,0.8);
+  color: #fff !important; 
   margin-bottom: 50px;
 }
 
@@ -582,15 +587,15 @@ body {
   text-align: center;
 }
 
-.section-title {
+.projects-container .section-title {
   font-size: 38px;
-  color: var(--color-4);
+  color: yellow;
   margin-bottom: 10px;
 }
 
 .section-desc {
   font-size: 18px;
-  color: rgba(255,255,255,0.7);
+  color: #fff !important;
   margin-bottom: 50px;
 }
 
@@ -700,9 +705,9 @@ body {
   margin-bottom: 10px;
 }
 
-.section-desc {
+.contact-container .section-desc {
   font-size: 18px;
-  color: rgba(0,0,0,0.7);
+  color: #fff !important;
   margin-bottom: 50px;
 }
 
@@ -799,13 +804,19 @@ body {
 /* end our team */
 /* ##################################### */
 /* start contact */
+
+
 .contact {
   padding: 120px 8%;
-  background: linear-gradient(rgba(12,43,78,0.85), rgba(26,61,100,0.85)), url('CONTACT_BG.jpg') center/cover no-repeat;
+  background: linear-gradient(rgba(12,43,78,0.85), rgba(26,61,100,0.85)), url('./photo/about.jpg') center/cover no-repeat;
   color: var(--color-4);
+  /* background-image: url("./photo/footer.jpg"); */
+  /* background-size: cover; */
   position: relative;
   overflow: hidden;
+
 }
+
 
 .contact-container {
   display: flex;
@@ -980,7 +991,9 @@ body {
 /* end footer */
 
 /* end footer */.footer {
-  background: var(--color-1);
+  /* background: var(--color-1); */
+  background-image: url('./photo/footer.jpg');
+  background-size: cover;
   color: var(--color-4);
   padding: 50px 8%;
   min-height: 80vh;
