@@ -207,7 +207,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;                 /* مخفية بالكامل */
-  transition: opacity 1s ease; /* تظهر تدريجيًا */
+  transition: opacity .5s ease; /* تظهر تدريجيًا */
 }
 
 
@@ -223,7 +223,7 @@ body {
   max-width: 550px;
   opacity: 0;
   transform: translateY(40px); /* يبدأ نازل لتحت */
-  transition: opacity 1.2s ease, transform 1s ease;
+  transition: opacity .3s ease, transform 1s ease;
 }
 
 .hero-content.show-text {
