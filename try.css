@@ -874,9 +874,9 @@ body {
 
 .contact-form button {
   padding: 12px 25px;
-  background: var(--color-3);
+  background: yellow;
   border: none;
-  color: var(--color-4);
+  color: var(--color-3);
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
@@ -885,6 +885,7 @@ body {
 
 .contact-form button:hover {
   background: var(--color-2);
+  color: var(--color-4)
 }
 
 /* معلومات الاتصال */
